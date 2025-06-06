@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMS Xerox & Photos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta name="description" content="MMS Xerox & Photos - Printing, Xerox, Photos, Recharge, and more services in Onnupuram.">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://imgs.search.brave.com/w_-j9puLNxTNJQcZnvSE4sF5DIZn-_TNntcFodSh7rM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9hYnN0cmFjdC1z/bW9vdGgtYmx1ZS13/aXRoLWJsYWNrLXZp/Z25ldHRlLXN0dWRp/by13ZWxsLXVzZS1h/cy1iYWNrZ3JvdW5k/LWJ1c2luZXNzLXJl/cG9ydC1kaWdpdGFs/LXdlYnNpdGUtdGVt/cGxhdGVfMTI1OC03/ODc5Ny5qcGc_c2Vt/dD1haXNfaXRlbXNf/Ym9vc3RlZCZ3PTc0/MA");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: azure;
+        }
+
+        .scroll-message {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .scroll-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .scroll-text:hover {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        @keyframes scroll-left {
+            from { transform: translateX(0%); }
+            to { transform: translateX(-100%); }
+        }
+
+        .name-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .end-bar {
+            display: flex;
+            justify-content: center;
+            padding: 20px 50px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .sname {
+            display: flex;
+            justify-content: center;
+            padding: 30px 20px 10px;
+            text-align: center;
+        }
+
+        .sname h1 {
+            font-size: 28px;
+            line-height: 1.6;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 30px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-icon {
+            position: relative;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 15px;
+            min-width: 100px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-icon:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .service-icon i {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .service-icon span {
+            display: block;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .service-icon::after {
+            content: attr(data-amount);
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        .service-icon:hover::after {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .customer-support {
+            max-width: 600px;
+            margin: 40px auto 60px;
+            background: rgba(0,0,0,0.6);
+            padding: 30px;
+            border-radius: 20px;
+            color: white;
+        }
+
+        .customer-support h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .customer-support label {
+            font-weight: bold;
+        }
+
+        .customer-support input, .customer-support textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .customer-support button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .error {
+            color: #ff6b6b;
+        }
+
+        .success {
+            color: #70e000;
+        }
+
+        #thankYouMessage {
+            display: none;
+            text-align: center;
+            font-size: 20px;
+            color: lightgreen;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="name-bar">
+        <div>MANOHARAN V &nbsp;<i class="fas fa-phone"></i> 9994791433</div>
+        <div>SANKARI M &nbsp;<i class="fas fa-phone"></i> 9994695343</div>
+    </div>
+
+    <div class="scroll-message">
+        <div class="scroll-text">
+            Welcome to MMS Xerox & Photos - Mobile Recharge: Airtel, Vodafone Idea, Jio, BSNL, Sun Direct, Airtel Dish, Sky Dish. We Pay your TNEB Bills Online.
+        </div>
+    </div>
+
+    <div class="sname">
+        <h1>
+            MMS XEROX & PHOTOS,<br />
+            ONNUPURAM, ARANI T.K,<br />
+            TIRUVANNAMALAI D.T. 632315
+        </h1>
+    </div>
+
+    <div class="services">
+        <div class="service-icon" data-amount="Starts From ₹10">
+            <i class="fas fa-print"></i>
+            <span>PRINTING</span>
+        </div>
+        <div class="service-icon" data-amount="Starts From ₹50">
+            <i class="fas fa-image"></i>
+            <span>PHOTOS</span>
+        </div>
+        <div class="service-icon" data-amount="Starts From ₹3">
+            <i class="fas fa-copy"></i>
+            <span>XEROX</span>
+        </div>
+        <div class="service-icon" data-amount="Starts From ₹25">
+            <i class="fas fa-file-contract"></i>
+            <span>LAMINATION</span>
+        </div>
+        <div class="service-icon" data-amount="Based on Customer Usage Plans 28 Days, 56 Days, 84 Days Etc...">
+            <i class="fas fa-mobile-alt"></i>
+            <span>MOBILE RECHARGE</span>
+        </div>
+    </div>
+
+    <div class="customer-support">
+        <h2>Customer Support</h2>
+        <form id="supportForm" action="https://formspree.io/f/mdkzazyz" method="POST">
+            <label for="name">Name <span style="color:red">*</span></label><br />
+            <input type="text" id="name" name="name" required />
+
+            <label for="contact">Contact No <span style="color:red">*</span></label><br />
+            <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" placeholder="10 digit phone number" />
+
+            <label for="place">Place <span style="color:red">*</span></label><br />
+            <input type="text" id="place" name="place" required />
+
+            <label for="email">Email <span style="color:red">*</span></label><br />
+            <input type="email" id="email" name="email" required />
+
+            <label for="suggestions">Suggestions</label><br />
+            <textarea id="suggestions" name="suggestions" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="thankYouMessage">
+            ✅ Thank you for contacting us! We’ll get back to you soon.
+        </div>
+    </div>
+
+    <div class="end-bar">
+        <div>Copyright &copy; MMS Limited 2007. All Rights Reserved.</div>
+    </div>
+
+    <script>
+        document.getElementById("supportForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            this.reset();
+            this.style.display = "none";
+            document.getElementById("thankYouMessage").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
